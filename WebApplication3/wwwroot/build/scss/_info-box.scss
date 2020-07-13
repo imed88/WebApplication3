@@ -1,12 +1,12 @@
 //
 // Component: Info Box
 //
-
+ 
 .info-box {
   @include box-shadow($card-shadow);
   @include border-radius($border-radius);
 
-  background-color: $white;
+  background: $white;
   display: flex;
   margin-bottom: map-get($spacers, 3);
   min-height: 80px;
