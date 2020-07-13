@@ -29,7 +29,7 @@
 <body>
 
     <div class="limiter">
-        <div class="container-login100" style="background-image: url('');">
+        <div class="container-login100" style="background-image: url('../../wwwroot/images/img-01.jpg');">
             <div class="wrap-login100 p-t-50 p-b-0">
                 <form class="login100-form validate-form">
                     <div class="login100-form-avatar">
@@ -74,5 +74,32 @@
     <script src="~/vendor/select2/select2.min.js"></script>
     <!--===============================================================================================-->
     <script src="~/js/main.js"></script>
+    <script>
+  function Validate() {
+    $.ajax(
+    {
+      type: "POST",
+      url: '@Url.Action("Validate", "Account")',
+      data: {
+        email: $('#email').val(),
+        password: $('#password').val()
+      },
+      error: function (result) {
+        alert("There is a Problem, Try Again!");
+      },
+      success: function (result) {
+        console.log(result);
+        if (result.status == true) {
+          window.location.href = '@Url.Action("Index", "Home")';
+        }
+        else {
+          alert(result.message);
+        }
+      }
+    });
+  }
+</script>
 </body>
+
 </html>
+

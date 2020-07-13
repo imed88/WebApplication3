@@ -2,7 +2,7 @@ using System;
 
 namespace WebApplication3.Models
 {
-    public class Admin
+    public class Admins
     {
         public int idAdmin { get; set; }
         public string nameAdmin { get; set; }

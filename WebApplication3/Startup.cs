@@ -13,33 +13,33 @@ using WebApplication3.Models;
 
 namespace WebApplication3
 {
-    public class Startup
-    {
+	public class Startup
+	{
 		private IConfiguration configuredata { get; set; }
 
 
 
-        public void ConfigureServices(IServiceCollection services)
-        {
+		public void ConfigureServices(IServiceCollection services)
+		{
 			services.AddDbContextPool<PatientDbContext>(options=>options.UseSqlServer(configuredata.GetConnectionString("sqlConnection")));
-            services.AddMvc().AddXmlSerializerFormatters();
-            
-        }
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            app.UseStaticFiles();
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Account}/{action=Login}/{id?}");
-            });
-        }
+			services.AddMvc().AddXmlSerializerFormatters();
+			
+		}
+		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+		{
+			if (env.IsDevelopment())
+			{
+				app.UseDeveloperExceptionPage();
+			}
+			app.UseStaticFiles();
+			app.UseMvc(routes =>
+			{
+				routes.MapRoute(
+					name: "default",
+					template: "{controller=Account}/{action=Login}/{id?}");
+			});
+		}
 
-    }
+	}
 }
