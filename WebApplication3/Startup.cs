@@ -15,13 +15,13 @@ namespace WebApplication3
 {
     public class Startup
     {
-		private IConfiguration configure { get; set; }
+		private IConfiguration configuredata { get; set; }
 
 
 
         public void ConfigureServices(IServiceCollection services)
         {
-			services.AddDbContextPool<PatientDbContext>(options=>options.UseSqlServer(configure.GetConnectionString("sqlConnection")));
+			services.AddDbContextPool<PatientDbContext>(options=>options.UseSqlServer(configuredata.GetConnectionString("sqlConnection")));
             services.AddMvc().AddXmlSerializerFormatters();
             
         }
